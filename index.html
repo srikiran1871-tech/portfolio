@@ -3,547 +3,389 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sri Kiran | IT Compliance Analyst</title>
+<title>Kuchimanchi Sri Kiran — IT Compliance Analyst</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
 <style>
-  /* ─── RESET & BASE ─── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --indigo:  #3b2fcc;
-    --indigo2: #241d7a;
-    --pink:    #ff2d78;
-    --cyan:    #00e5ff;
-    --amber:   #ffb300;
-    --bg:      #09090f;
-    --bg2:     #0e0e1a;
-    --bg3:     #13132a;
-    --text:    #e8e8f0;
-    --muted:   #7c7c9a;
-    --card:    rgba(19,19,42,0.85);
-    --border:  rgba(255,255,255,0.07);
-  }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    overflow-x: hidden;
-    cursor: none;
-  }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:   #0b1c3a;
+  --navy2:  #0f2347;
+  --slate:  #1a2f52;
+  --steel:  #243d6a;
+  --gold:   #c8a84b;
+  --gold2:  #e2c070;
+  --cream:  #f5f0e8;
+  --white:  #ffffff;
+  --off:    #f9f7f4;
+  --gray1:  #e8e4dc;
+  --gray2:  #c9c4b8;
+  --gray3:  #8a8478;
+  --text:   #1a1714;
+  --text2:  #4a4540;
+  --border: rgba(0,0,0,0.09);
+  --sh:     0 2px 16px rgba(11,28,58,0.10);
+  --sh2:    0 8px 40px rgba(11,28,58,0.14);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--text);overflow-x:hidden;cursor:none;font-size:16px;line-height:1.6}
 
-  /* ─── CUSTOM CURSOR ─── */
-  #cursor-dot {
-    position: fixed; top: 0; left: 0; width: 8px; height: 8px;
-    border-radius: 50%; background: var(--cyan);
-    box-shadow: 0 0 10px var(--cyan), 0 0 20px var(--cyan);
-    pointer-events: none; z-index: 9999; transform: translate(-50%,-50%);
-    transition: width .1s, height .1s, background .2s;
-  }
-  #cursor-ring {
-    position: fixed; top: 0; left: 0; width: 36px; height: 36px;
-    border-radius: 50%; border: 1.5px solid var(--pink);
-    pointer-events: none; z-index: 9998; transform: translate(-50%,-50%);
-    transition: transform .12s ease-out, border-color .3s;
-    box-shadow: 0 0 8px var(--pink);
-  }
-  body:has(a:hover) #cursor-dot  { width: 14px; height: 14px; background: var(--amber); box-shadow: 0 0 16px var(--amber);}
-  body:has(a:hover) #cursor-ring { border-color: var(--amber); }
+/* CURSOR */
+#cd{position:fixed;top:0;left:0;width:9px;height:9px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .1s,height .1s}
+#cr{position:fixed;top:0;left:0;width:32px;height:32px;border-radius:50%;border:1.5px solid var(--navy);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:border-color .25s}
 
-  /* ─── LOADING SCREEN ─── */
-  #loader {
-    position: fixed; inset: 0; z-index: 9000;
-    background: var(--bg);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    transition: opacity .7s ease, visibility .7s ease;
-  }
-  #loader.hide { opacity: 0; visibility: hidden; }
-  .loader-logo {
-    font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800;
-    background: linear-gradient(90deg, var(--cyan), var(--pink), var(--amber), var(--cyan));
-    background-size: 300%;
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    animation: shimmer 2s linear infinite;
-    letter-spacing: -1px;
-  }
-  .loader-bar {
-    margin-top: 28px; width: 180px; height: 3px;
-    background: var(--bg3); border-radius: 4px; overflow: hidden;
-  }
-  .loader-bar-fill {
-    height: 100%; width: 0;
-    background: linear-gradient(90deg, var(--cyan), var(--pink));
-    border-radius: 4px; animation: loadfill 1.6s ease forwards;
-  }
-  @keyframes loadfill { to { width: 100%; } }
+/* LOADER */
+#loader{position:fixed;inset:0;z-index:9000;background:var(--navy);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;transition:opacity .6s ease,visibility .6s ease}
+#loader.hide{opacity:0;visibility:hidden}
+.l-mono{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream);opacity:.4}
+.l-name{font-family:'Syne',sans-serif;font-weight:800;font-size:2.8rem;color:var(--white);letter-spacing:-.04em;line-height:1}
+.l-name em{color:var(--gold);font-style:normal}
+.l-bar{width:120px;height:2px;background:var(--slate);border-radius:2px;overflow:hidden}
+.l-fill{height:100%;width:0;background:var(--gold);animation:lf 1.8s ease forwards}
+@keyframes lf{to{width:100%}}
 
-  /* ─── PARTICLE CANVAS ─── */
-  #particle-canvas {
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  }
+/* CANVAS */
+#pc{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4}
 
-  /* ─── LAYOUT ─── */
-  main { position: relative; z-index: 1; }
-  section { padding: 100px 0; }
-  .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:68px;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-mark{font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--white);letter-spacing:-.02em;text-decoration:none;cursor:none;display:flex;align-items:center;gap:10px}
+.nav-dot{width:28px;height:28px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:.7rem;color:var(--navy);font-weight:800;flex-shrink:0}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{font-size:.78rem;font-weight:500;color:rgba(255,255,255,.45);text-decoration:none;letter-spacing:.08em;text-transform:uppercase;padding:8px 16px;border-radius:4px;transition:color .2s,background .2s;cursor:none}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.07)}
 
-  /* ─── NAV ─── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 48px;
-    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-    background: rgba(9,9,15,0.7); border-bottom: 1px solid var(--border);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem;
-    background: linear-gradient(90deg, var(--cyan), var(--pink));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    cursor: pointer; text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a {
-    font-size: .9rem; font-weight: 500; color: var(--muted);
-    text-decoration: none; letter-spacing: .04em; text-transform: uppercase;
-    transition: color .3s; cursor: none;
-  }
-  .nav-links a:hover { color: var(--cyan); }
-  .nav-links a::after {
-    content:''; display:block; height:2px; width:0;
-    background: var(--cyan); transition: width .3s;
-  }
-  .nav-links a:hover::after { width: 100%; }
+/* LAYOUT */
+main{position:relative;z-index:1}
+.container{max-width:1100px;margin:0 auto;padding:0 48px}
+section{padding:110px 0}
 
-  /* ─── HERO ─── */
-  #hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding-top: 100px;
-  }
-  .hero-inner {
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 60px; width: 100%;
-  }
-  .hero-left { flex: 1; }
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(0,229,255,0.08); border: 1px solid rgba(0,229,255,0.25);
-    padding: 6px 16px; border-radius: 100px; font-size: .82rem; color: var(--cyan);
-    margin-bottom: 28px; letter-spacing: .06em; text-transform: uppercase; font-weight: 500;
-  }
-  .hero-badge span { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); animation: pulse-dot 1.5s ease-in-out infinite; display: inline-block; }
-  @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
-  .hero-name {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(2.8rem, 7vw, 5.5rem);
-    line-height: 1.05; letter-spacing: -2px;
-    background: linear-gradient(90deg, #fff 20%, var(--cyan) 45%, var(--pink) 65%, var(--amber) 85%, #fff 100%);
-    background-size: 300%;
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-    animation: shimmer 4s linear infinite;
-    margin-bottom: 16px;
-  }
-  @keyframes shimmer { 0%{background-position:0%} 100%{background-position:300%} }
-  .hero-title {
-    font-family: 'Syne', sans-serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    color: var(--muted); font-weight: 600; margin-bottom: 24px; letter-spacing: -.02em;
-  }
-  .hero-title span { color: var(--amber); }
-  .hero-desc {
-    max-width: 540px; line-height: 1.8; color: var(--muted); font-size: 1rem;
-    margin-bottom: 40px;
-  }
-  .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn {
-    padding: 14px 32px; border-radius: 8px; font-family: 'DM Sans', sans-serif;
-    font-weight: 600; font-size: .92rem; cursor: none; text-decoration: none;
-    display: inline-flex; align-items: center; gap: 8px;
-    transition: transform .25s, box-shadow .25s;
-    border: none; letter-spacing: .02em;
-  }
-  .btn:hover { transform: translateY(-3px); }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--indigo), var(--pink));
-    color: #fff; box-shadow: 0 8px 30px rgba(255,45,120,.35);
-  }
-  .btn-primary:hover { box-shadow: 0 12px 40px rgba(255,45,120,.55); }
-  .btn-outline {
-    background: transparent; color: var(--cyan);
-    border: 1.5px solid var(--cyan); box-shadow: 0 0 14px rgba(0,229,255,.15);
-  }
-  .btn-outline:hover { background: rgba(0,229,255,.1); box-shadow: 0 8px 28px rgba(0,229,255,.3); }
+/* HERO */
+#hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding-top:68px;position:relative;overflow:hidden}
+.h-stripe{position:absolute;right:0;top:0;bottom:0;width:42%;background:var(--navy2);clip-path:polygon(8% 0,100% 0,100% 100%,0 100%)}
+.hero-inner{display:grid;grid-template-columns:1fr 380px;gap:60px;align-items:center;position:relative;z-index:2;width:100%}
+.h-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.h-eyebrow::before{content:'';display:block;width:28px;height:1.5px;background:var(--gold)}
+.h-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,5.5vw,4.6rem);line-height:1.05;letter-spacing:-.04em;color:var(--white);margin-bottom:14px}
+.h-name span{display:block;background:linear-gradient(90deg,var(--gold) 0%,var(--gold2) 60%,var(--cream) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:shimmer 5s linear infinite}
+@keyframes shimmer{0%{background-position:0%}100%{background-position:200%}}
+.h-role{font-size:1rem;font-weight:400;color:rgba(255,255,255,.5);margin-bottom:32px;letter-spacing:.01em;line-height:1.7}
+.h-role strong{color:rgba(255,255,255,.8);font-weight:500}
+.h-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.08);border-radius:8px;overflow:hidden;margin-bottom:40px}
+.h-stat{background:var(--slate);padding:20px 18px;text-align:center}
+.h-stat-n{font-family:'Syne',sans-serif;font-weight:800;font-size:1.8rem;color:var(--gold);letter-spacing:-.04em;line-height:1;margin-bottom:4px}
+.h-stat-l{font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.06em;text-transform:uppercase}
+.h-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:13px 28px;border-radius:6px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;cursor:none;text-decoration:none;display:inline-flex;align-items:center;gap:8px;letter-spacing:.02em;transition:all .25s;border:none}
+.btn-gold{background:var(--gold);color:var(--navy);box-shadow:0 4px 16px rgba(200,168,75,.3)}
+.btn-gold:hover{background:var(--gold2);box-shadow:0 8px 24px rgba(200,168,75,.45);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.65);border:1px solid rgba(255,255,255,.2)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.5);color:var(--white);transform:translateY(-2px)}
 
-  /* ─── AVATAR RIPPLE ─── */
-  .hero-right { flex-shrink: 0; position: relative; width: 230px; height: 230px; }
-  .ripple-ring {
-    position: absolute; border-radius: 50%;
-    border: 1.5px solid;
-    left: 50%; top: 50%; transform: translate(-50%,-50%);
-    animation: ripple-expand 3s ease-out infinite;
-  }
-  .ripple-ring:nth-child(1){ width: 230px; height: 230px; border-color: rgba(0,229,255,.35); animation-delay: 0s; }
-  .ripple-ring:nth-child(2){ width: 290px; height: 290px; border-color: rgba(255,45,120,.25); animation-delay: 1s; }
-  .ripple-ring:nth-child(3){ width: 350px; height: 350px; border-color: rgba(255,179,0,.15); animation-delay: 2s; }
-  @keyframes ripple-expand {
-    0%  { opacity: 0.8; transform: translate(-50%,-50%) scale(.85); }
-    100%{ opacity: 0;   transform: translate(-50%,-50%) scale(1.15); }
-  }
-  .avatar-circle {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-    width: 160px; height: 160px; border-radius: 50%;
-    background: linear-gradient(135deg, var(--indigo2), var(--indigo), var(--pink));
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.8rem;
-    color: #fff; letter-spacing: -2px;
-    box-shadow: 0 0 40px rgba(59,47,204,.5), 0 0 80px rgba(255,45,120,.25);
-    animation: avatar-pulse 3.5s ease-in-out infinite;
-  }
-  @keyframes avatar-pulse {
-    0%,100%{ box-shadow: 0 0 40px rgba(59,47,204,.5), 0 0 80px rgba(255,45,120,.25); }
-    50%    { box-shadow: 0 0 60px rgba(59,47,204,.8), 0 0 100px rgba(255,45,120,.4); }
-  }
+/* AVATAR CARD */
+.h-card{background:var(--slate);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:36px;position:relative;overflow:hidden;animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.h-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.av-wrap{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--gold));display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:var(--white);margin:0 auto 24px;position:relative}
+.av-ring{position:absolute;border-radius:50%;border:1px solid rgba(200,168,75,.4);animation:rp 2.5s ease-out infinite}
+.av-ring:nth-child(1){inset:-10px;animation-delay:0s}
+.av-ring:nth-child(2){inset:-22px;animation-delay:.85s;border-color:rgba(200,168,75,.2)}
+.av-ring:nth-child(3){inset:-34px;animation-delay:1.7s;border-color:rgba(200,168,75,.1)}
+@keyframes rp{0%{opacity:.8;transform:scale(.88)}100%{opacity:0;transform:scale(1.1)}}
+.h-card-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--white);text-align:center;margin-bottom:3px}
+.h-card-sub{font-size:.78rem;color:rgba(255,255,255,.4);text-align:center;margin-bottom:24px}
+.h-card-div{height:1px;background:rgba(255,255,255,.08);margin-bottom:20px}
+.h-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.h-row:last-of-type{margin-bottom:0}
+.h-ico{width:32px;height:32px;border-radius:6px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.h-ico svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
+.h-info{font-size:.78rem;color:rgba(255,255,255,.5);line-height:1.4}
+.h-info strong{color:rgba(255,255,255,.82);font-weight:500;display:block;font-size:.8rem}
+.status-pill{display:inline-flex;align-items:center;gap:6px;margin-top:20px;background:rgba(200,168,75,.1);border:1px solid rgba(200,168,75,.22);color:var(--gold);font-size:.7rem;font-weight:500;padding:6px 14px;border-radius:100px;letter-spacing:.07em;text-transform:uppercase;width:100%;justify-content:center}
+.s-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:pd 1.8s ease-in-out infinite}
+@keyframes pd{0%,100%{opacity:1}50%{opacity:.25}}
 
-  /* ─── SECTION HEADINGS ─── */
-  .section-label {
-    font-size: .78rem; text-transform: uppercase; letter-spacing: .14em;
-    color: var(--pink); font-weight: 600; margin-bottom: 10px;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif; font-weight: 800;
-    font-size: clamp(1.9rem, 4vw, 2.8rem); letter-spacing: -1px;
-    margin-bottom: 60px; color: #fff;
-  }
-  .section-title em {
-    font-style: normal;
-    background: linear-gradient(90deg, var(--cyan), var(--pink));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  }
+/* MARQUEE */
+.mq-wrap{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);overflow:hidden}
+.mq-track{display:flex;width:max-content;animation:mq 28s linear infinite}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.mq-item{display:flex;align-items:center;font-size:.72rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:rgba(255,255,255,.32);padding:18px 28px}
+.mq-sep{color:var(--gold);margin-left:28px;font-size:.4rem}
 
-  /* ─── FLOATING 3D CARD ─── */
-  .float-card-wrap {
-    perspective: 1000px; width: 100%; max-width: 460px; margin: 0 auto 60px;
-  }
-  .float-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 20px; padding: 36px;
-    backdrop-filter: blur(16px);
-    animation: card3d 8s ease-in-out infinite;
-    transform-style: preserve-3d;
-    box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.04);
-  }
-  @keyframes card3d {
-    0%   { transform: rotateX(3deg) rotateY(-6deg); }
-    25%  { transform: rotateX(-3deg) rotateY(6deg); }
-    50%  { transform: rotateX(5deg) rotateY(4deg); }
-    75%  { transform: rotateX(-4deg) rotateY(-5deg); }
-    100% { transform: rotateX(3deg) rotateY(-6deg); }
-  }
-  .float-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
-  .float-card-dot { width: 12px; height: 12px; border-radius: 50%; }
-  .float-card-dot:nth-child(1){ background: #ff5f56; }
-  .float-card-dot:nth-child(2){ background: #febc2e; }
-  .float-card-dot:nth-child(3){ background: #27c840; }
-  .float-card-tag { font-size: .75rem; color: var(--muted); margin-left: auto; font-family: 'DM Sans', monospace; letter-spacing: .06em; }
-  .float-card-line { font-size: .88rem; line-height: 1.9; color: var(--muted); }
-  .float-card-line .key  { color: var(--cyan); }
-  .float-card-line .val  { color: var(--amber); }
-  .float-card-line .str  { color: var(--pink); }
+/* SECTION CHROME */
+.sec-lbl{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.sec-lbl::before{content:'';width:20px;height:1.5px;background:var(--gold);flex-shrink:0}
+.sec-h{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.9rem,3.5vw,2.6rem);letter-spacing:-.04em;color:var(--navy);margin-bottom:56px;line-height:1.1}
+.sec-h em{font-style:normal;color:var(--gold)}
+.sec-h.light{color:var(--white)}
 
-  /* ─── MARQUEE ─── */
-  .marquee-section { padding: 32px 0; overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .marquee-track {
-    display: flex; gap: 60px; width: max-content;
-    animation: marquee-scroll 20s linear infinite;
-  }
-  .marquee-track:hover { animation-play-state: paused; }
-  @keyframes marquee-scroll { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-  .marquee-item {
-    font-family: 'Syne', sans-serif; font-weight: 700;
-    font-size: 1.05rem; white-space: nowrap; color: var(--muted);
-    display: flex; align-items: center; gap: 20px; letter-spacing: .03em;
-  }
-  .marquee-item::after { content:'◆'; font-size: .5rem; color: var(--pink); }
+/* ABOUT */
+#about{background:var(--off)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about-intro{font-size:1.05rem;line-height:1.85;color:var(--text2);border-left:3px solid var(--gold);padding-left:24px;margin-bottom:28px}
+.about-body{font-size:.94rem;line-height:1.82;color:var(--gray3);margin-bottom:24px}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.a-tag{font-size:.7rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:7px 14px;border-radius:4px;background:var(--navy);color:var(--cream)}
+.profile-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--sh)}
+.pc-top{background:var(--navy);padding:28px;display:flex;gap:16px;align-items:center}
+.pc-init{width:56px;height:56px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--navy);flex-shrink:0}
+.pc-name{font-family:'Syne',sans-serif;font-weight:700;color:var(--white);font-size:1.05rem;margin-bottom:3px}
+.pc-sub{font-size:.78rem;color:rgba(255,255,255,.4)}
+.pc-body{padding:20px 24px}
+.kv{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-bottom:1px solid var(--border);font-size:.85rem}
+.kv:last-child{border-bottom:none}
+.kv-k{color:var(--gray3);font-weight:400}
+.kv-v{color:var(--text);font-weight:500;text-align:right;max-width:62%}
+.kv-v.gold{color:var(--gold)}
 
-  /* ─── ABOUT / EXPERIENCE ─── */
-  .exp-grid { display: flex; flex-direction: column; gap: 28px; }
-  .exp-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 32px; position: relative; overflow: hidden;
-    backdrop-filter: blur(12px);
-    transition: transform .3s, box-shadow .3s;
-  }
-  .exp-card::before {
-    content:''; position: absolute; inset: 0; border-radius: 16px;
-    background: linear-gradient(135deg, rgba(59,47,204,.1), rgba(255,45,120,.05));
-    pointer-events: none;
-  }
-  .exp-card:hover { transform: translateY(-4px); box-shadow: 0 24px 50px rgba(0,0,0,.4); }
-  .exp-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
-  .exp-company { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.2rem; color: #fff; }
-  .exp-date { font-size: .82rem; color: var(--cyan); background: rgba(0,229,255,.1); border: 1px solid rgba(0,229,255,.2); padding: 4px 12px; border-radius: 100px; white-space: nowrap; }
-  .exp-role { font-size: .92rem; color: var(--amber); font-weight: 500; margin-bottom: 18px; }
-  .exp-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .exp-list li { font-size: .9rem; line-height: 1.7; color: var(--muted); padding-left: 20px; position: relative; }
-  .exp-list li::before { content:'▸'; position: absolute; left: 0; color: var(--pink); }
+/* EXPERIENCE */
+#experience{background:var(--cream)}
+.exp-stack{display:flex;flex-direction:column;gap:16px}
+.exp-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;box-shadow:var(--sh);transition:box-shadow .25s,transform .25s}
+.exp-card:hover{box-shadow:var(--sh2);transform:translateY(-2px)}
+.exp-hd{display:flex;align-items:center;gap:20px;padding:26px 32px;border-left:4px solid var(--gold)}
+.exp-meta{flex:1}
+.exp-co{font-family:'Syne',sans-serif;font-weight:800;font-size:1.12rem;color:var(--navy);margin-bottom:3px}
+.exp-rt{font-size:.85rem;color:var(--gray3)}
+.exp-badge{font-size:.7rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;background:var(--navy);color:var(--cream);padding:6px 16px;border-radius:100px;white-space:nowrap;flex-shrink:0}
+.exp-bd{padding:4px 32px 26px 36px}
+.exp-pts{list-style:none;display:flex;flex-direction:column;gap:9px}
+.exp-pts li{font-size:.86rem;line-height:1.72;color:var(--text2);padding-left:18px;position:relative}
+.exp-pts li::before{content:'—';position:absolute;left:0;color:var(--gold);font-weight:700}
 
-  /* ─── SKILLS ─── */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-  .skill-group-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; color: var(--cyan); margin-bottom: 20px; letter-spacing: .04em; text-transform: uppercase; }
-  .skill-bar-wrap { margin-bottom: 18px; }
-  .skill-bar-header { display: flex; justify-content: space-between; margin-bottom: 6px; }
-  .skill-bar-name { font-size: .88rem; color: var(--text); font-weight: 500; }
-  .skill-bar-pct  { font-size: .8rem; color: var(--muted); }
-  .skill-bar-bg { background: rgba(255,255,255,.07); border-radius: 100px; height: 6px; overflow: hidden; }
-  .skill-bar-fill {
-    height: 100%; border-radius: 100px; width: 0;
-    transition: width 1.2s cubic-bezier(.4,0,.2,1);
-    position: relative;
-  }
-  .skill-bar-fill::after {
-    content:''; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
-    width: 10px; height: 10px; border-radius: 50%;
-    background: inherit;
-    box-shadow: 0 0 10px currentColor;
-  }
-  .fill-cyan   { background: linear-gradient(90deg, var(--indigo), var(--cyan)); }
-  .fill-pink   { background: linear-gradient(90deg, var(--indigo), var(--pink)); }
-  .fill-amber  { background: linear-gradient(90deg, var(--indigo2), var(--amber)); }
+/* SKILLS */
+#skills{background:var(--navy)}
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.sk-col{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:26px 22px}
+.sk-col-h{font-family:'Syne',sans-serif;font-weight:700;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sb{margin-bottom:15px}
+.sb-top{display:flex;justify-content:space-between;margin-bottom:7px}
+.sb-n{font-size:.82rem;color:rgba(255,255,255,.72);font-weight:400}
+.sb-p{font-size:.72rem;color:rgba(255,255,255,.3)}
+.sb-tr{height:4px;background:rgba(255,255,255,.07);border-radius:100px;overflow:hidden}
+.sb-f{height:100%;width:0;border-radius:100px;background:var(--gold);transition:width 1.3s cubic-bezier(.4,0,.2,1)}
 
-  /* ─── PROJECT CARDS ─── */
-  .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
-  .proj-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 32px; position: relative; overflow: hidden;
-    transition: transform .3s, box-shadow .3s; cursor: none;
-  }
-  .proj-card::before {
-    content:''; position: absolute; top: 0; left: -100%; right: 100%; height: 3px;
-    background: linear-gradient(90deg, var(--cyan), var(--pink), var(--amber));
-    transition: left .45s ease, right .45s ease;
-  }
-  .proj-card:hover::before { left: 0; right: 0; }
-  .proj-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px rgba(0,0,0,.45); }
-  .proj-icon { font-size: 2rem; margin-bottom: 16px; }
-  .proj-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 10px; }
-  .proj-desc  { font-size: .88rem; line-height: 1.7; color: var(--muted); }
-  .proj-tags  { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-  .proj-tag   { font-size: .72rem; padding: 4px 10px; border-radius: 100px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; }
-  .tag-cyan   { background: rgba(0,229,255,.1); color: var(--cyan); border: 1px solid rgba(0,229,255,.2); }
-  .tag-pink   { background: rgba(255,45,120,.1); color: var(--pink); border: 1px solid rgba(255,45,120,.2); }
-  .tag-amber  { background: rgba(255,179,0,.1); color: var(--amber); border: 1px solid rgba(255,179,0,.2); }
+/* DOMAINS */
+#domains{background:var(--off)}
+.dm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.dm-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:26px 22px;position:relative;overflow:hidden;box-shadow:var(--sh);transition:all .25s}
+.dm-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.dm-card:hover::after{transform:scaleX(1)}
+.dm-card:hover{box-shadow:var(--sh2);transform:translateY(-4px)}
+.dm-num{font-family:'Syne',sans-serif;font-weight:800;font-size:2rem;color:var(--gray1);letter-spacing:-.06em;line-height:1;margin-bottom:14px}
+.dm-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.97rem;color:var(--navy);margin-bottom:9px}
+.dm-desc{font-size:.82rem;line-height:1.72;color:var(--gray3)}
+.dm-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.dtag{font-size:.66rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;padding:4px 10px;border-radius:100px;background:rgba(11,28,58,.06);color:var(--navy);border:1px solid rgba(11,28,58,.1)}
 
-  /* ─── COMPETENCIES ─── */
-  .comp-grid { display: flex; flex-wrap: wrap; gap: 12px; }
-  .comp-chip {
-    padding: 8px 18px; border-radius: 100px; font-size: .82rem;
-    font-weight: 500; letter-spacing: .02em;
-    border: 1px solid var(--border);
-    background: rgba(255,255,255,.04);
-    color: var(--text);
-    transition: background .3s, border-color .3s, color .3s, transform .2s;
-  }
-  .comp-chip:hover {
-    background: rgba(0,229,255,.1); border-color: var(--cyan); color: var(--cyan);
-    transform: translateY(-2px);
-  }
+/* COMPETENCIES */
+#competencies{background:var(--cream)}
+.comp-wrap{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:9px 20px;border-radius:6px;font-size:.8rem;font-weight:400;background:var(--white);color:var(--text2);border:1px solid var(--border);transition:all .2s;cursor:default;box-shadow:var(--sh)}
+.chip:hover{background:var(--navy);color:var(--cream);border-color:var(--navy);transform:translateY(-2px)}
 
-  /* ─── CONTACT ─── */
-  #contact { position: relative; text-align: center; }
-  .contact-ripples {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-    pointer-events: none;
-  }
-  .contact-ripple {
-    position: absolute; border-radius: 50%; border: 1px solid;
-    left: 50%; top: 50%; transform: translate(-50%,-50%);
-    animation: contact-pulse 4s ease-out infinite;
-  }
-  .contact-ripple:nth-child(1){ width: 300px; height: 300px; border-color: rgba(0,229,255,.15); animation-delay: 0s; }
-  .contact-ripple:nth-child(2){ width: 500px; height: 500px; border-color: rgba(255,45,120,.10); animation-delay: 1.3s; }
-  .contact-ripple:nth-child(3){ width: 700px; height: 700px; border-color: rgba(255,179,0,.07); animation-delay: 2.6s; }
-  @keyframes contact-pulse {
-    0%  { opacity: .9; transform: translate(-50%,-50%) scale(.7); }
-    100%{ opacity: 0;  transform: translate(-50%,-50%) scale(1); }
-  }
-  .contact-inner { position: relative; z-index: 2; }
-  .contact-desc { font-size: 1.05rem; color: var(--muted); max-width: 440px; margin: 0 auto 40px; line-height: 1.8; }
-  .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-  .contact-link {
-    display: flex; align-items: center; gap: 10px;
-    padding: 14px 28px; border-radius: 12px;
-    background: var(--card); border: 1px solid var(--border);
-    color: var(--text); text-decoration: none;
-    font-size: .9rem; font-weight: 500;
-    transition: all .3s; cursor: none; backdrop-filter: blur(12px);
-  }
-  .contact-link:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,229,255,.15); }
-  .contact-link svg { flex-shrink: 0; }
-  .contact-info { display: flex; flex-direction: column; gap: 10px; margin-bottom: 36px; align-items: center; }
-  .contact-info-item { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: .92rem; }
-  .contact-info-item svg { color: var(--cyan); }
+/* EDUCATION */
+#education{background:var(--navy)}
+.edu-stack{display:flex;flex-direction:column;gap:14px}
+.edu-card{display:flex;align-items:center;gap:28px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:22px 26px;transition:background .2s}
+.edu-card:hover{background:rgba(255,255,255,.07)}
+.edu-yr{font-family:'Syne',sans-serif;font-weight:800;font-size:.78rem;color:var(--gold);letter-spacing:.07em;white-space:nowrap;min-width:80px}
+.edu-ln{width:1px;height:40px;background:rgba(255,255,255,.1);flex-shrink:0}
+.edu-deg{font-family:'Syne',sans-serif;font-weight:700;color:var(--white);margin-bottom:4px;font-size:.95rem}
+.edu-inst{font-size:.82rem;color:rgba(255,255,255,.4)}
 
-  /* ─── FOOTER ─── */
-  footer {
-    text-align: center; padding: 32px; font-size: .82rem; color: var(--muted);
-    border-top: 1px solid var(--border);
-  }
-  footer span { color: var(--pink); }
+/* CONTACT */
+#contact{background:var(--off);position:relative;overflow:hidden}
+.cr-ring{position:absolute;right:-100px;top:-100px;border-radius:50%;border:1px solid rgba(11,28,58,.06);animation:crp 4s ease-out infinite;pointer-events:none}
+.cr-ring:nth-child(1){width:380px;height:380px;animation-delay:0s}
+.cr-ring:nth-child(2){width:540px;height:540px;animation-delay:1.4s}
+.cr-ring:nth-child(3){width:700px;height:700px;animation-delay:2.8s}
+@keyframes crp{0%{opacity:.7;transform:scale(.8)}100%{opacity:0;transform:scale(1)}}
+.ct-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
+.ct-desc{font-size:.97rem;line-height:1.82;color:var(--text2);margin-bottom:32px}
+.ct-items{display:flex;flex-direction:column;gap:12px}
+.ci{display:flex;align-items:center;gap:16px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:15px 18px;text-decoration:none;box-shadow:var(--sh);transition:all .25s;cursor:none}
+.ci:hover{border-color:var(--navy);box-shadow:var(--sh2);transform:translateX(4px)}
+.ci-ico{width:36px;height:36px;border-radius:7px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ci-ico svg{width:15px;height:15px;stroke:var(--gold);fill:none;stroke-width:2}
+.ci-lbl{font-size:.68rem;color:var(--gray3);text-transform:uppercase;letter-spacing:.09em;font-weight:500;margin-bottom:2px}
+.ci-val{font-size:.9rem;color:var(--text);font-weight:500}
+.cta-box{background:var(--navy);border-radius:14px;padding:44px 40px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.cta-ey{font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.cta-h{font-family:'Syne',sans-serif;font-weight:800;font-size:1.85rem;color:var(--white);letter-spacing:-.04em;line-height:1.15;margin-bottom:14px}
+.cta-h span{color:var(--gold)}
+.cta-sub{font-size:.86rem;color:rgba(255,255,255,.38);line-height:1.75;margin-bottom:30px}
 
-  /* ─── SCROLL REVEAL ─── */
-  .reveal {
-    opacity: 0; transition: opacity .7s ease, transform .7s ease;
-  }
-  .reveal.from-bottom  { transform: translateY(50px); }
-  .reveal.from-left    { transform: translateX(-60px); }
-  .reveal.from-right   { transform: translateX(60px); }
-  .reveal.visible {
-    opacity: 1; transform: translateY(0) translateX(0);
-  }
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:26px 60px;display:flex;justify-content:space-between;align-items:center}
+.ft-copy{font-size:.76rem;color:rgba(255,255,255,.28);letter-spacing:.04em}
+.ft-mark{font-family:'Syne',sans-serif;font-weight:800;font-size:.84rem;color:rgba(255,255,255,.18);letter-spacing:-.02em}
 
-  /* ─── MOBILE ─── */
-  @media (max-width: 768px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    .hero-inner { flex-direction: column; gap: 50px; padding-top: 40px; }
-    .hero-right { margin: 0 auto; }
-    .float-card-wrap { max-width: 100%; }
-    .skills-grid { grid-template-columns: 1fr; }
-    section { padding: 70px 0; }
-    .container { padding: 0 20px; }
-  }
+/* REVEAL */
+.rev{opacity:0;transition:opacity .65s ease,transform .65s ease}
+.rev.up{transform:translateY(40px)}
+.rev.left{transform:translateX(-40px)}
+.rev.right{transform:translateX(40px)}
+.rev.in{opacity:1;transform:none}
 
-  /* ─── MISC ─── */
-  .edu-grid { display: grid; gap: 20px; }
-  .edu-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 14px; padding: 24px 28px;
-    display: flex; gap: 20px; align-items: flex-start;
-    transition: transform .3s; backdrop-filter: blur(12px);
-  }
-  .edu-card:hover { transform: translateY(-3px); }
-  .edu-icon { font-size: 2rem; flex-shrink: 0; }
-  .edu-degree { font-family: 'Syne', sans-serif; font-weight: 700; color: #fff; margin-bottom: 4px; }
-  .edu-school { font-size: .9rem; color: var(--cyan); margin-bottom: 4px; }
-  .edu-year   { font-size: .82rem; color: var(--muted); }
-
-  .divider { height: 1px; background: var(--border); margin: 0 48px; }
-  #skills { background: linear-gradient(180deg, transparent, rgba(59,47,204,.05), transparent); }
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:0 24px}
+  .nav-links{display:none}
+  section{padding:72px 0}
+  .container{padding:0 24px}
+  .hero-inner,.about-grid,.ct-grid{grid-template-columns:1fr}
+  .h-stripe{display:none}
+  .sk-grid,.dm-grid{grid-template-columns:1fr 1fr}
+  footer{flex-direction:column;gap:10px;padding:24px;text-align:center}
+}
+@media(max-width:580px){
+  .sk-grid,.dm-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
 
-<!-- Cursor -->
-<div id="cursor-dot"></div>
-<div id="cursor-ring"></div>
+<div id="cd"></div>
+<div id="cr"></div>
 
-<!-- Loader -->
 <div id="loader">
-  <div class="loader-logo">SKK</div>
-  <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+  <p class="l-mono">Portfolio</p>
+  <p class="l-name">Sri <em>Kiran</em></p>
+  <div class="l-bar"><div class="l-fill"></div></div>
 </div>
 
-<!-- Particle canvas -->
-<canvas id="particle-canvas"></canvas>
+<canvas id="pc"></canvas>
 
-<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#hero">Sri Kiran</a>
+  <a class="nav-mark" href="#hero">
+    <div class="nav-dot">SK</div>
+    Kuchimanchi Sri Kiran
+  </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Areas</a></li>
+    <li><a href="#domains">Domains</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
 <main>
-<!-- ─── HERO ─── -->
+
+<!-- HERO -->
 <section id="hero">
+  <div class="h-stripe"></div>
   <div class="container">
     <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-badge"><span></span>Open to Opportunities</div>
-        <h1 class="hero-name">Kuchimanchi<br/>Sri Kiran</h1>
-        <p class="hero-title">IT Compliance Analyst · <span>IT SOX Auditor</span> · ITGC Specialist</p>
-        <p class="hero-desc">IT SOX Auditor with 4+ years of IT experience, including 3+ years specializing in SOX 404 compliance, ITGC auditing, and ICOFR. Proven expertise in end-to-end ITGC testing, control walkthroughs, SOC 1/SOC 2 review, and driving remediation to closure.</p>
-        <div class="hero-ctas">
-          <a href="#experience" class="btn btn-primary">View Experience</a>
-          <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <div>
+        <div class="h-eyebrow">IT Compliance Professional</div>
+        <h1 class="h-name">Kuchimanchi<br/><span>Sri Kiran</span></h1>
+        <p class="h-role"><strong>IT SOX Auditor · IT Compliance Analyst · ITGC Specialist</strong><br/>Hyderabad, India · 4+ years of IT experience including 3+ years in SOX 404 and ITGC auditing for publicly traded companies.</p>
+        <div class="h-stats">
+          <div class="h-stat"><div class="h-stat-n">4+</div><div class="h-stat-l">Years IT Exp.</div></div>
+          <div class="h-stat"><div class="h-stat-n">3+</div><div class="h-stat-l">Years SOX</div></div>
+          <div class="h-stat"><div class="h-stat-n">20+</div><div class="h-stat-l">Controls/Cycle</div></div>
+        </div>
+        <div class="h-ctas">
+          <a href="#experience" class="btn btn-gold">View Experience</a>
+          <a href="#contact" class="btn btn-ghost">Get In Touch</a>
         </div>
       </div>
-      <div class="hero-right">
-        <div class="ripple-ring"></div>
-        <div class="ripple-ring"></div>
-        <div class="ripple-ring"></div>
-        <div class="avatar-circle">SK</div>
+      <div>
+        <div class="h-card">
+          <div class="av-wrap">
+            SK
+            <div class="av-ring"></div>
+            <div class="av-ring"></div>
+            <div class="av-ring"></div>
+          </div>
+          <div class="h-card-name">Kuchimanchi Sri Kiran</div>
+          <div class="h-card-sub">IT Compliance Analyst</div>
+          <div class="h-card-div"></div>
+          <div class="h-row">
+            <div class="h-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="h-info"><strong>Location</strong>Hyderabad, India</div>
+          </div>
+          <div class="h-row">
+            <div class="h-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="h-info"><strong>Email</strong>srikiran.0410@mail.com</div>
+          </div>
+          <div class="h-row">
+            <div class="h-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 19.79 19.79 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 19.79 19.79 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div class="h-info"><strong>Phone</strong>+91-9490427999</div>
+          </div>
+          <div class="status-pill"><span class="s-dot"></span>Open to Opportunities</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── MARQUEE ─── -->
-<div class="marquee-section">
-  <div class="marquee-track" id="marquee-track">
-    <div class="marquee-item">Regal Rexnord</div>
-    <div class="marquee-item">Marathon Electric India</div>
-    <div class="marquee-item">Microsoft</div>
-    <div class="marquee-item">SOX 404 Compliance</div>
-    <div class="marquee-item">ITGC Auditing</div>
-    <div class="marquee-item">PCAOB Standards</div>
-    <div class="marquee-item">SOC 1 · SOC 2</div>
-    <div class="marquee-item">BITS Pilani</div>
-    <div class="marquee-item">ServiceNow</div>
-    <div class="marquee-item">Oracle BI</div>
-    <div class="marquee-item">Active Directory</div>
-    <!-- duplicate for seamless loop -->
-    <div class="marquee-item">Regal Rexnord</div>
-    <div class="marquee-item">Marathon Electric India</div>
-    <div class="marquee-item">Microsoft</div>
-    <div class="marquee-item">SOX 404 Compliance</div>
-    <div class="marquee-item">ITGC Auditing</div>
-    <div class="marquee-item">PCAOB Standards</div>
-    <div class="marquee-item">SOC 1 · SOC 2</div>
-    <div class="marquee-item">BITS Pilani</div>
-    <div class="marquee-item">ServiceNow</div>
-    <div class="marquee-item">Oracle BI</div>
-    <div class="marquee-item">Active Directory</div>
+<!-- MARQUEE -->
+<div class="mq-wrap">
+  <div class="mq-track">
+    <span class="mq-item">Regal Rexnord<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Marathon Electric India<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Microsoft<span class="mq-sep">◆</span></span>
+    <span class="mq-item">SOX 404 Compliance<span class="mq-sep">◆</span></span>
+    <span class="mq-item">ITGC Auditing<span class="mq-sep">◆</span></span>
+    <span class="mq-item">PCAOB Standards<span class="mq-sep">◆</span></span>
+    <span class="mq-item">SOC 1 &amp; SOC 2<span class="mq-sep">◆</span></span>
+    <span class="mq-item">BITS Pilani<span class="mq-sep">◆</span></span>
+    <span class="mq-item">ServiceNow<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Oracle BI<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Active Directory<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Regal Rexnord<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Marathon Electric India<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Microsoft<span class="mq-sep">◆</span></span>
+    <span class="mq-item">SOX 404 Compliance<span class="mq-sep">◆</span></span>
+    <span class="mq-item">ITGC Auditing<span class="mq-sep">◆</span></span>
+    <span class="mq-item">PCAOB Standards<span class="mq-sep">◆</span></span>
+    <span class="mq-item">SOC 1 &amp; SOC 2<span class="mq-sep">◆</span></span>
+    <span class="mq-item">BITS Pilani<span class="mq-sep">◆</span></span>
+    <span class="mq-item">ServiceNow<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Oracle BI<span class="mq-sep">◆</span></span>
+    <span class="mq-item">Active Directory<span class="mq-sep">◆</span></span>
   </div>
 </div>
 
-<!-- ─── ABOUT ─── -->
+<!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="reveal from-left">
-      <p class="section-label">About Me</p>
-      <h2 class="section-title">Compliance at the<br/><em>intersection of IT & Finance</em></h2>
+    <div class="rev up">
+      <div class="sec-lbl">About</div>
+      <h2 class="sec-h">Compliance at the intersection<br/>of <em>IT &amp; Finance</em></h2>
     </div>
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;" class="about-inner">
-      <div class="reveal from-left">
-        <p style="color:var(--muted); line-height:1.9; margin-bottom:20px; font-size:.97rem;">
-          Based in Hyderabad, India, I specialize in IT General Controls auditing across Logical Access, Change Management, and IT Operations. My background spans publicly traded manufacturing companies, consulting engagements, and enterprise IT administration.
-        </p>
-        <p style="color:var(--muted); line-height:1.9; font-size:.97rem;">
-          I bridge the gap between technical IT systems and regulatory compliance requirements — translating complex control environments into clear, audit-ready documentation that satisfies both internal and external auditors.
-        </p>
+    <div class="about-grid">
+      <div class="rev left">
+        <p class="about-intro">IT SOX Auditor with 4+ years of IT experience, specializing in SOX 404 compliance, ITGC auditing, and ICOFR for publicly traded organizations.</p>
+        <p class="about-body">My expertise spans end-to-end ITGC testing across Logical Access Controls, Change Management, and IT Operations. I execute TOD/TOE testing, conduct structured control walkthroughs, review SOC 1 and SOC 2 reports, and drive remediation to closure — coordinating seamlessly across IT, Security, Finance, and External Audit teams.</p>
+        <p class="about-body">Previously at Microsoft as an IT Administrator, I built deep hands-on experience with enterprise IAM — user provisioning, de-provisioning, JML process, RBAC, and ServiceNow ticket management — giving me a practitioner's perspective when testing access controls as an auditor.</p>
+        <div class="about-tags">
+          <span class="a-tag">SOX 404</span><span class="a-tag">PCAOB</span><span class="a-tag">COSO</span><span class="a-tag">ITGC</span><span class="a-tag">ICOFR</span><span class="a-tag">IAM</span>
+        </div>
       </div>
-      <div class="reveal from-right">
-        <div class="float-card-wrap">
-          <div class="float-card">
-            <div class="float-card-header">
-              <div class="float-card-dot"></div>
-              <div class="float-card-dot"></div>
-              <div class="float-card-dot"></div>
-              <span class="float-card-tag">profile.json</span>
+      <div class="rev right">
+        <div class="profile-card">
+          <div class="pc-top">
+            <div class="pc-init">SK</div>
+            <div>
+              <div class="pc-name">Kuchimanchi Sri Kiran</div>
+              <div class="pc-sub">IT Compliance Analyst · ITGC Specialist</div>
             </div>
-            <div class="float-card-line"><span class="key">"name"</span>: <span class="str">"Kuchimanchi Sri Kiran"</span>,</div>
-            <div class="float-card-line"><span class="key">"location"</span>: <span class="str">"Hyderabad, India"</span>,</div>
-            <div class="float-card-line"><span class="key">"experience"</span>: <span class="val">"4+ years"</span>,</div>
-            <div class="float-card-line"><span class="key">"sox_experience"</span>: <span class="val">"3+ years"</span>,</div>
-            <div class="float-card-line"><span class="key">"specialization"</span>: <span class="str">"ITGC / SOX 404"</span>,</div>
-            <div class="float-card-line"><span class="key">"frameworks"</span>: <span class="str">"COSO, PCAOB"</span>,</div>
-            <div class="float-card-line"><span class="key">"education"</span>: <span class="str">"M.Tech – BITS Pilani"</span>,</div>
-            <div class="float-card-line"><span class="key">"status"</span>: <span class="val">true</span> <span style="color:var(--muted)">// open to work</span></div>
+          </div>
+          <div class="pc-body">
+            <div class="kv"><span class="kv-k">Current Role</span><span class="kv-v">IT Compliance Analyst</span></div>
+            <div class="kv"><span class="kv-k">Employer</span><span class="kv-v">Regal Rexnord</span></div>
+            <div class="kv"><span class="kv-k">Total Experience</span><span class="kv-v gold">4+ Years</span></div>
+            <div class="kv"><span class="kv-k">SOX Experience</span><span class="kv-v gold">3+ Years</span></div>
+            <div class="kv"><span class="kv-k">Location</span><span class="kv-v">Hyderabad, India</span></div>
+            <div class="kv"><span class="kv-k">Education</span><span class="kv-v">M.Tech — BITS Pilani</span></div>
+            <div class="kv"><span class="kv-k">Frameworks</span><span class="kv-v">COSO · PCAOB · SSAE 18</span></div>
+            <div class="kv"><span class="kv-k">Availability</span><span class="kv-v gold">Open to Work</span></div>
           </div>
         </div>
       </div>
@@ -551,424 +393,238 @@
   </div>
 </section>
 
-<!-- ─── EXPERIENCE ─── -->
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
-    <div class="reveal from-bottom">
-      <p class="section-label">Career Journey</p>
-      <h2 class="section-title">Professional <em>Experience</em></h2>
+    <div class="rev up">
+      <div class="sec-lbl">Career Journey</div>
+      <h2 class="sec-h">Professional <em>Experience</em></h2>
     </div>
-    <div class="exp-grid">
-
-      <div class="exp-card reveal from-left">
-        <div class="exp-top">
-          <div>
-            <div class="exp-company">Regal Rexnord</div>
-            <div class="exp-role">IT Compliance Analyst · Hyderabad, India</div>
+    <div class="exp-stack">
+      <div class="exp-card rev left">
+        <div class="exp-hd">
+          <div class="exp-meta">
+            <div class="exp-co">Regal Rexnord</div>
+            <div class="exp-rt">IT Compliance Analyst · Hyderabad, India</div>
           </div>
-          <div class="exp-date">Aug 2024 – Present</div>
+          <div class="exp-badge">Aug 2024 – Present</div>
         </div>
-        <ul class="exp-list">
-          <li>Execute SOX 404 ITGC testing across Logical Access, Change Management, and IT Operations for a publicly traded manufacturing company, supporting annual external audit readiness.</li>
-          <li>Perform TOD and TOE for 20+ controls per audit cycle per PCAOB standards; conduct structured control walkthroughs with owners to validate design and operating effectiveness.</li>
-          <li>Review SOC 1 (SSAE 18) and SOC 2 (Type I & II) reports to assess third-party controls and residual risk; collect and validate audit artifacts (access reports, change tickets, system logs).</li>
-          <li>Identify control gaps and deficiencies; prepare audit observations and management action plans; track remediation to closure before reporting deadlines.</li>
-          <li>Maintain organized audit workpapers; coordinate with IT, Security, Finance, and External Audit teams for seamless SOX operations.</li>
-        </ul>
+        <div class="exp-bd">
+          <ul class="exp-pts">
+            <li>Execute SOX 404 ITGC testing across Logical Access, Change Management, and IT Operations for a publicly traded manufacturing company, supporting annual external audit readiness.</li>
+            <li>Perform TOD and TOE for 20+ controls per audit cycle per PCAOB standards; conduct structured control walkthroughs with owners to validate design and operating effectiveness.</li>
+            <li>Review SOC 1 (SSAE 18) and SOC 2 (Type I &amp; II) reports to assess third-party controls and residual risk; validate audit artifacts including access reports, change tickets, and system logs.</li>
+            <li>Identify control gaps and deficiencies; prepare audit observations and management action plans; track remediation to closure before reporting deadlines.</li>
+            <li>Coordinate with IT, Security, Finance, and External Audit teams for seamless SOX operations; maintain organized audit workpapers per internal documentation standards.</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="exp-card reveal from-right">
-        <div class="exp-top">
-          <div>
-            <div class="exp-company">Marathon Electric India Pvt. Ltd.</div>
-            <div class="exp-role">IT Compliance Consultant · Hyderabad, India</div>
+      <div class="exp-card rev right">
+        <div class="exp-hd">
+          <div class="exp-meta">
+            <div class="exp-co">Marathon Electric India Pvt. Ltd.</div>
+            <div class="exp-rt">IT Compliance Consultant · Hyderabad, India</div>
           </div>
-          <div class="exp-date">Apr 2023 – Jul 2024</div>
+          <div class="exp-badge">Apr 2023 – Jul 2024</div>
         </div>
-        <ul class="exp-list">
-          <li>Delivered end-to-end SOX compliance and internal audit engagements for multiple clients, executing ITGC testing across Logical Access, Change Management, and IT Operations.</li>
-          <li>Conducted TOD and TOE for key IT controls; led stakeholder walkthroughs to document control activities, identify gaps, and validate implementations.</li>
-          <li>Drafted audit observations, root cause analyses, and remediation recommendations; validated system-generated reports for completeness and accuracy of audit samples.</li>
-          <li>Consistently delivered audit workpapers and compliance reports within project timelines, coordinating with control owners to resolve queries and support remediation.</li>
-        </ul>
+        <div class="exp-bd">
+          <ul class="exp-pts">
+            <li>Delivered end-to-end SOX compliance and internal audit engagements for multiple clients, executing ITGC testing across Logical Access, Change Management, and IT Operations.</li>
+            <li>Conducted TOD and TOE for key IT controls; led stakeholder walkthroughs to document control activities, identify gaps, and validate implementations.</li>
+            <li>Drafted audit observations, root cause analyses, and remediation recommendations; validated system-generated reports for completeness and accuracy of audit samples.</li>
+            <li>Delivered audit workpapers and compliance reports within project timelines, coordinating with control owners to resolve queries and support remediation.</li>
+          </ul>
+        </div>
       </div>
-
-      <div class="exp-card reveal from-left">
-        <div class="exp-top">
-          <div>
-            <div class="exp-company">Microsoft</div>
-            <div class="exp-role">IT Administrator · Hyderabad, India</div>
+      <div class="exp-card rev left">
+        <div class="exp-hd">
+          <div class="exp-meta">
+            <div class="exp-co">Microsoft</div>
+            <div class="exp-rt">IT Administrator · Hyderabad, India</div>
           </div>
-          <div class="exp-date">Feb 2022 – Mar 2023</div>
+          <div class="exp-badge">Feb 2022 – Mar 2023</div>
         </div>
-        <ul class="exp-list">
-          <li>Administered end-to-end user account lifecycle (provisioning, modification, de-provisioning) enforcing JML process, least-privilege principles, and RBAC across enterprise systems.</li>
-          <li>Managed service requests and incident tickets via ServiceNow with consistent SLA compliance (L1/L2); supported access governance with audit-ready approval documentation.</li>
-          <li>Administered Oracle BI and Jira (roles, permissions, access certifications); authored SOPs and generated periodic access reports for IT compliance monitoring.</li>
-        </ul>
+        <div class="exp-bd">
+          <ul class="exp-pts">
+            <li>Administered end-to-end user account lifecycle (provisioning, modification, de-provisioning) enforcing JML process, least-privilege principles, and RBAC across enterprise systems.</li>
+            <li>Managed service requests and incident tickets via ServiceNow with consistent SLA compliance (L1/L2); supported access governance with audit-ready approval documentation.</li>
+            <li>Administered Oracle BI and Jira roles, permissions, and access certifications; authored SOPs and generated periodic access reports for IT compliance monitoring.</li>
+          </ul>
+        </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ─── SKILLS ─── -->
+<!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <div class="reveal from-bottom">
-      <p class="section-label">Technical Proficiency</p>
-      <h2 class="section-title">Skills & <em>Expertise</em></h2>
+    <div class="rev up">
+      <div class="sec-lbl">Technical Proficiency</div>
+      <h2 class="sec-h light">Skills &amp; <em>Expertise</em></h2>
     </div>
-    <div class="skills-grid">
-
-      <div class="reveal from-left">
-        <div class="skill-group-title">GRC & Compliance</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">SOX 404 / ITGC</span><span class="skill-bar-pct">95%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-cyan" data-width="95"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">TOD / TOE Testing</span><span class="skill-bar-pct">90%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-cyan" data-width="90"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">PCAOB Standards</span><span class="skill-bar-pct">88%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-cyan" data-width="88"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">SOC 1 / SOC 2 Review</span><span class="skill-bar-pct">85%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-cyan" data-width="85"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">COSO Framework / RCM</span><span class="skill-bar-pct">82%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-cyan" data-width="82"></div></div>
-        </div>
+    <div class="sk-grid">
+      <div class="sk-col rev left">
+        <div class="sk-col-h">GRC &amp; Compliance</div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">SOX 404 / ITGC</span><span class="sb-p">95%</span></div><div class="sb-tr"><div class="sb-f" data-w="95"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">TOD / TOE Testing</span><span class="sb-p">90%</span></div><div class="sb-tr"><div class="sb-f" data-w="90"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">PCAOB Standards</span><span class="sb-p">88%</span></div><div class="sb-tr"><div class="sb-f" data-w="88"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">SOC 1 / SOC 2 Review</span><span class="sb-p">85%</span></div><div class="sb-tr"><div class="sb-f" data-w="85"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">COSO Framework</span><span class="sb-p">83%</span></div><div class="sb-tr"><div class="sb-f" data-w="83"></div></div></div>
       </div>
-
-      <div class="reveal from-bottom">
-        <div class="skill-group-title">IAM & IT Controls</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Logical Access Controls</span><span class="skill-bar-pct">92%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-pink" data-width="92"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Change Management Controls</span><span class="skill-bar-pct">88%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-pink" data-width="88"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">User Access Reviews (UAR)</span><span class="skill-bar-pct">90%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-pink" data-width="90"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">JML / RBAC / PAM</span><span class="skill-bar-pct">85%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-pink" data-width="85"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Active Directory</span><span class="skill-bar-pct">80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-pink" data-width="80"></div></div>
-        </div>
+      <div class="sk-col rev up">
+        <div class="sk-col-h">IAM &amp; IT Controls</div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Logical Access Controls</span><span class="sb-p">92%</span></div><div class="sb-tr"><div class="sb-f" data-w="92"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Change Management Controls</span><span class="sb-p">88%</span></div><div class="sb-tr"><div class="sb-f" data-w="88"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">User Access Reviews</span><span class="sb-p">90%</span></div><div class="sb-tr"><div class="sb-f" data-w="90"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">JML / RBAC / PAM</span><span class="sb-p">85%</span></div><div class="sb-tr"><div class="sb-f" data-w="85"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Active Directory</span><span class="sb-p">80%</span></div><div class="sb-tr"><div class="sb-f" data-w="80"></div></div></div>
       </div>
-
-      <div class="reveal from-right">
-        <div class="skill-group-title">Tools & Reporting</div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">ServiceNow</span><span class="skill-bar-pct">87%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-amber" data-width="87"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Microsoft 365 / Excel</span><span class="skill-bar-pct">90%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-amber" data-width="90"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Oracle BI</span><span class="skill-bar-pct">78%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-amber" data-width="78"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Jira</span><span class="skill-bar-pct">80%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-amber" data-width="80"></div></div>
-        </div>
-        <div class="skill-bar-wrap">
-          <div class="skill-bar-header"><span class="skill-bar-name">Audit Workpaper Documentation</span><span class="skill-bar-pct">92%</span></div>
-          <div class="skill-bar-bg"><div class="skill-bar-fill fill-amber" data-width="92"></div></div>
-        </div>
+      <div class="sk-col rev right">
+        <div class="sk-col-h">Tools &amp; Reporting</div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">ServiceNow</span><span class="sb-p">87%</span></div><div class="sb-tr"><div class="sb-f" data-w="87"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Microsoft 365 / Excel</span><span class="sb-p">90%</span></div><div class="sb-tr"><div class="sb-f" data-w="90"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Oracle BI</span><span class="sb-p">78%</span></div><div class="sb-tr"><div class="sb-f" data-w="78"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Jira</span><span class="sb-p">80%</span></div><div class="sb-tr"><div class="sb-f" data-w="80"></div></div></div>
+        <div class="sb"><div class="sb-top"><span class="sb-n">Audit Workpaper Docs</span><span class="sb-p">93%</span></div><div class="sb-tr"><div class="sb-f" data-w="93"></div></div></div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ─── CORE COMPETENCIES ─── -->
-<section id="projects">
+<!-- DOMAINS -->
+<section id="domains">
   <div class="container">
-    <div class="reveal from-bottom">
-      <p class="section-label">Competencies & Focus Areas</p>
-      <h2 class="section-title">Key <em>Domains</em></h2>
+    <div class="rev up">
+      <div class="sec-lbl">Competency Areas</div>
+      <h2 class="sec-h">Key <em>Domains</em></h2>
     </div>
-    <div class="projects-grid" style="margin-bottom:60px;">
-      <div class="proj-card reveal from-left">
-        <div class="proj-icon">🔒</div>
-        <div class="proj-title">Logical Access Controls</div>
-        <div class="proj-desc">End-to-end testing of user provisioning, de-provisioning, access reviews, privileged access management, and RBAC across enterprise systems ensuring least-privilege compliance.</div>
-        <div class="proj-tags"><span class="proj-tag tag-cyan">UAR</span><span class="proj-tag tag-cyan">JML Process</span><span class="proj-tag tag-pink">PAM</span><span class="proj-tag tag-amber">RBAC</span></div>
-      </div>
-      <div class="proj-card reveal from-bottom">
-        <div class="proj-icon">🔄</div>
-        <div class="proj-title">Change Management Controls</div>
-        <div class="proj-desc">Evaluating the design and operating effectiveness of change management processes — from request through testing, approval, and deployment — ensuring segregation of duties and complete audit trails.</div>
-        <div class="proj-tags"><span class="proj-tag tag-pink">TOD/TOE</span><span class="proj-tag tag-cyan">Change Tickets</span><span class="proj-tag tag-amber">SOD</span></div>
-      </div>
-      <div class="proj-card reveal from-right">
-        <div class="proj-icon">⚙️</div>
-        <div class="proj-title">IT Operations Controls</div>
-        <div class="proj-desc">Reviewing backup and recovery controls, job scheduling, monitoring, incident management, and system availability controls that ensure reliability of financial reporting systems.</div>
-        <div class="proj-tags"><span class="proj-tag tag-amber">Backup & Recovery</span><span class="proj-tag tag-cyan">Monitoring</span><span class="proj-tag tag-pink">SLA</span></div>
-      </div>
-      <div class="proj-card reveal from-left">
-        <div class="proj-icon">📋</div>
-        <div class="proj-title">SOC 1 / SOC 2 Assessment</div>
-        <div class="proj-desc">Reviewing SSAE 18 SOC 1 and SOC 2 Type I & II reports to assess third-party service organization controls, identify complementary user entity controls, and evaluate residual risk.</div>
-        <div class="proj-tags"><span class="proj-tag tag-cyan">SSAE 18</span><span class="proj-tag tag-pink">SOC 2</span><span class="proj-tag tag-amber">Residual Risk</span></div>
-      </div>
-      <div class="proj-card reveal from-bottom">
-        <div class="proj-icon">📊</div>
-        <div class="proj-title">ICOFR Readiness</div>
-        <div class="proj-desc">Supporting Internal Control over Financial Reporting programs through risk and control matrix development, control design assessment, and coordination with external auditors for efficient audit execution.</div>
-        <div class="proj-tags"><span class="proj-tag tag-pink">RCM</span><span class="proj-tag tag-cyan">ICOFR</span><span class="proj-tag tag-amber">COSO</span></div>
-      </div>
-      <div class="proj-card reveal from-right">
-        <div class="proj-icon">🛠️</div>
-        <div class="proj-title">Remediation & Deficiency Mgmt</div>
-        <div class="proj-desc">Identifying control gaps, documenting deficiencies, preparing management action plans, and tracking remediation to closure to ensure clean audit opinions and reduced regulatory risk.</div>
-        <div class="proj-tags"><span class="proj-tag tag-amber">Gap Analysis</span><span class="proj-tag tag-cyan">Action Plans</span><span class="proj-tag tag-pink">Closure</span></div>
-      </div>
-    </div>
-
-    <div class="reveal from-bottom">
-      <p class="section-label" style="margin-bottom:20px;">All Core Competencies</p>
-      <div class="comp-grid">
-        <span class="comp-chip">SOX 404 Compliance</span>
-        <span class="comp-chip">IT General Controls (ITGC)</span>
-        <span class="comp-chip">ICOFR Readiness</span>
-        <span class="comp-chip">IT Risk Assessment</span>
-        <span class="comp-chip">TOD / TOE Testing</span>
-        <span class="comp-chip">Logical Access Controls</span>
-        <span class="comp-chip">Change Management Controls</span>
-        <span class="comp-chip">IT Operations Controls</span>
-        <span class="comp-chip">User Access Reviews (UAR)</span>
-        <span class="comp-chip">Control Deficiency Identification</span>
-        <span class="comp-chip">SOC 1 / SOC 2 Review</span>
-        <span class="comp-chip">Audit Workpaper Documentation</span>
-        <span class="comp-chip">Remediation Tracking</span>
-        <span class="comp-chip">PCAOB Standards</span>
-        <span class="comp-chip">Risk and Control Matrix (RCM)</span>
-        <span class="comp-chip">Stakeholder Management</span>
-        <span class="comp-chip">COSO Framework</span>
-        <span class="comp-chip">Control Self-Assessment</span>
-      </div>
+    <div class="dm-grid">
+      <div class="dm-card rev up"><div class="dm-num">01</div><div class="dm-title">Logical Access Controls</div><div class="dm-desc">Testing user provisioning, de-provisioning, access reviews, privileged access management, and RBAC across enterprise systems ensuring least-privilege compliance.</div><div class="dm-tags"><span class="dtag">UAR</span><span class="dtag">JML</span><span class="dtag">PAM</span><span class="dtag">RBAC</span></div></div>
+      <div class="dm-card rev up" style="transition-delay:.08s"><div class="dm-num">02</div><div class="dm-title">Change Management Controls</div><div class="dm-desc">Evaluating design and operating effectiveness of change management processes from request through testing, approval, and deployment — ensuring segregation of duties.</div><div class="dm-tags"><span class="dtag">TOD/TOE</span><span class="dtag">Change Tickets</span><span class="dtag">SOD</span></div></div>
+      <div class="dm-card rev up" style="transition-delay:.16s"><div class="dm-num">03</div><div class="dm-title">IT Operations Controls</div><div class="dm-desc">Reviewing backup and recovery, job scheduling, monitoring, incident management, and system availability controls ensuring reliability of financial reporting systems.</div><div class="dm-tags"><span class="dtag">Backup</span><span class="dtag">Monitoring</span><span class="dtag">SLA</span></div></div>
+      <div class="dm-card rev up" style="transition-delay:.04s"><div class="dm-num">04</div><div class="dm-title">SOC 1 / SOC 2 Assessment</div><div class="dm-desc">Reviewing SSAE 18 SOC 1 and SOC 2 Type I &amp; II reports to assess third-party service organization controls and evaluate residual risk.</div><div class="dm-tags"><span class="dtag">SSAE 18</span><span class="dtag">SOC 2</span><span class="dtag">Residual Risk</span></div></div>
+      <div class="dm-card rev up" style="transition-delay:.12s"><div class="dm-num">05</div><div class="dm-title">ICOFR Readiness</div><div class="dm-desc">Supporting Internal Control over Financial Reporting through risk and control matrix development, control design assessment, and external auditor coordination.</div><div class="dm-tags"><span class="dtag">RCM</span><span class="dtag">ICOFR</span><span class="dtag">COSO</span></div></div>
+      <div class="dm-card rev up" style="transition-delay:.2s"><div class="dm-num">06</div><div class="dm-title">Remediation Management</div><div class="dm-desc">Identifying control gaps, documenting deficiencies, preparing management action plans, and tracking remediation to closure to ensure clean audit opinions.</div><div class="dm-tags"><span class="dtag">Gap Analysis</span><span class="dtag">Action Plans</span><span class="dtag">Closure</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- ─── EDUCATION ─── -->
+<!-- COMPETENCIES -->
+<section id="competencies">
+  <div class="container">
+    <div class="rev up">
+      <div class="sec-lbl">Core Competencies</div>
+      <h2 class="sec-h">All <em>Capabilities</em></h2>
+    </div>
+    <div class="comp-wrap rev up">
+      <span class="chip">SOX 404 Compliance</span><span class="chip">IT General Controls (ITGC)</span><span class="chip">ICOFR Readiness</span><span class="chip">IT Risk Assessment</span><span class="chip">TOD / TOE Testing</span><span class="chip">Logical Access Controls</span><span class="chip">Change Management Controls</span><span class="chip">IT Operations Controls</span><span class="chip">User Access Reviews (UAR)</span><span class="chip">Control Deficiency Identification</span><span class="chip">SOC 1 / SOC 2 Review</span><span class="chip">Audit Workpaper Documentation</span><span class="chip">Remediation Tracking</span><span class="chip">PCAOB Standards</span><span class="chip">Risk &amp; Control Matrix (RCM)</span><span class="chip">Stakeholder Management</span><span class="chip">COSO Framework</span><span class="chip">Control Self-Assessment</span><span class="chip">Privileged Access Management</span><span class="chip">User Provisioning / De-provisioning</span><span class="chip">System-Generated Report Testing</span>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
 <section id="education">
   <div class="container">
-    <div class="reveal from-bottom">
-      <p class="section-label">Academic Background</p>
-      <h2 class="section-title">Education &amp; <em>Qualifications</em></h2>
+    <div class="rev up">
+      <div class="sec-lbl">Academic Background</div>
+      <h2 class="sec-h light">Education &amp; <em>Qualifications</em></h2>
     </div>
-    <div class="edu-grid">
-      <div class="edu-card reveal from-left">
-        <div class="edu-icon">🎓</div>
-        <div>
-          <div class="edu-degree">Master of Technology (M.Tech) – Software Systems</div>
-          <div class="edu-school">BITS Pilani, Hyderabad Campus</div>
-          <div class="edu-year">2021 – 2025 · Hyderabad, India</div>
+    <div class="edu-stack">
+      <div class="edu-card rev left"><div class="edu-yr">2021–2025</div><div class="edu-ln"></div><div><div class="edu-deg">Master of Technology (M.Tech) — Software Systems</div><div class="edu-inst">BITS Pilani, Hyderabad Campus · Hyderabad, India</div></div></div>
+      <div class="edu-card rev left" style="transition-delay:.1s"><div class="edu-yr">2018–2021</div><div class="edu-ln"></div><div><div class="edu-deg">Bachelor of Science (B.Sc.) — Computer Science</div><div class="edu-inst">Aditya Degree College · India</div></div></div>
+      <div class="edu-card rev left" style="transition-delay:.2s"><div class="edu-yr">2016–2018</div><div class="edu-ln"></div><div><div class="edu-deg">Intermediate (Class XII)</div><div class="edu-inst">Prathibha Junior College · India</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cr-ring"></div>
+  <div class="cr-ring"></div>
+  <div class="cr-ring"></div>
+  <div class="container">
+    <div class="rev up">
+      <div class="sec-lbl">Get In Touch</div>
+      <h2 class="sec-h">Let's <em>Connect</em></h2>
+    </div>
+    <div class="ct-grid">
+      <div class="rev left">
+        <p class="ct-desc">Available for IT Compliance Analyst, SOX Auditor, and ITGC Specialist roles. I bring end-to-end audit expertise and a collaborative approach to strengthening your compliance posture.</p>
+        <div class="ct-items">
+          <a href="mailto:srikiran.0410@mail.com" class="ci"><div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="ci-lbl">Email</div><div class="ci-val">srikiran.0410@mail.com</div></div></a>
+          <a href="tel:+919490427999" class="ci"><div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 19.79 19.79 0 0 1 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 19.79 19.79 0 0 1 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="ci-lbl">Phone</div><div class="ci-val">+91-9490427999</div></div></a>
+          <div class="ci"><div class="ci-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="ci-lbl">Location</div><div class="ci-val">Hyderabad, India</div></div></div>
         </div>
       </div>
-      <div class="edu-card reveal from-right">
-        <div class="edu-icon">📘</div>
-        <div>
-          <div class="edu-degree">Bachelor of Science (B.Sc.) – Computer Science</div>
-          <div class="edu-school">Aditya Degree College</div>
-          <div class="edu-year">2018 – 2021 · India</div>
-        </div>
-      </div>
-      <div class="edu-card reveal from-left">
-        <div class="edu-icon">🏫</div>
-        <div>
-          <div class="edu-degree">Intermediate (Class XII)</div>
-          <div class="edu-school">Prathibha Junior College</div>
-          <div class="edu-year">2016 – 2018 · India</div>
+      <div class="rev right">
+        <div class="cta-box">
+          <div class="cta-ey">Ready to contribute</div>
+          <div class="cta-h">Open to<br/><span>new opportunities</span></div>
+          <div class="cta-sub">Looking for IT Compliance, SOX Audit, or ITGC specialist roles where I can apply expertise in PCAOB standards, control testing, and audit coordination.</div>
+          <a href="mailto:srikiran.0410@mail.com" class="btn btn-gold" style="padding:14px 32px;font-size:.88rem">Send Me an Email</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── CONTACT ─── -->
-<section id="contact">
-  <div class="container">
-    <div class="contact-ripples">
-      <div class="contact-ripple"></div>
-      <div class="contact-ripple"></div>
-      <div class="contact-ripple"></div>
-    </div>
-    <div class="contact-inner reveal from-bottom">
-      <p class="section-label">Get In Touch</p>
-      <h2 class="section-title" style="margin-bottom:20px;">Let's <em>Connect</em></h2>
-      <p class="contact-desc">Available for IT Compliance, SOX Audit, and ITGC specialist roles. Let's discuss how I can help strengthen your compliance posture.</p>
-      <div class="contact-info">
-        <div class="contact-info-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          srikiran.0410@mail.com
-        </div>
-        <div class="contact-info-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          +91-9490427999
-        </div>
-        <div class="contact-info-item">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Hyderabad, India
-        </div>
-      </div>
-      <div class="contact-links">
-        <a href="mailto:srikiran.0410@mail.com" class="contact-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Send Email
-        </a>
-        <a href="tel:+919490427999" class="contact-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Call Me
-        </a>
-        <a href="https://www.linkedin.com/in/srikiran" target="_blank" class="contact-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          LinkedIn
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
 </main>
 
 <footer>
-  <p>Designed & built with <span>♥</span> · Kuchimanchi Sri Kiran © 2025</p>
+  <span class="ft-copy">© 2025 Kuchimanchi Sri Kiran · Hyderabad, India</span>
+  <span class="ft-mark">IT Compliance Portfolio</span>
 </footer>
 
 <script>
-/* ─── CURSOR ─── */
-const dot  = document.getElementById('cursor-dot');
-const ring = document.getElementById('cursor-ring');
+/* CURSOR */
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
 let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e=>{ mx=e.clientX; my=e.clientY; dot.style.left=mx+'px'; dot.style.top=my+'px'; });
-(function animRing(){
-  rx += (mx-rx)*.12; ry += (my-ry)*.12;
-  ring.style.left=rx+'px'; ring.style.top=ry+'px';
-  requestAnimationFrame(animRing);
-})();
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(loop)})();
 
-/* ─── LOADER ─── */
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{ document.getElementById('loader').classList.add('hide'); }, 1700);
-});
+/* LOADER */
+window.addEventListener('load',()=>setTimeout(()=>document.getElementById('loader').classList.add('hide'),1900));
 
-/* ─── PARTICLE CANVAS ─── */
+/* PARTICLE CANVAS — subtle gold on light sections */
 (function(){
-  const canvas = document.getElementById('particle-canvas');
-  const ctx = canvas.getContext('2d');
-  const COLORS = ['#3b2fcc','#ff2d78','#00e5ff','#ffb300','#241d7a'];
-  let W,H, particles=[];
-
-  function resize(){ W=canvas.width=window.innerWidth; H=canvas.height=window.innerHeight; }
-  window.addEventListener('resize', resize); resize();
-
-  function Particle(){
-    this.x = Math.random()*W;
-    this.y = Math.random()*H;
-    this.vx = (Math.random()-.5)*.6;
-    this.vy = (Math.random()-.5)*.6;
-    this.r  = Math.random()*2+1;
-    this.color = COLORS[Math.floor(Math.random()*COLORS.length)];
-  }
-  Particle.prototype.update = function(){
-    this.x += this.vx; this.y += this.vy;
-    if(this.x<0||this.x>W) this.vx*=-1;
-    if(this.y<0||this.y>H) this.vy*=-1;
-  };
-
-  for(let i=0;i<90;i++) particles.push(new Particle());
-
+  const c=document.getElementById('pc'),ctx=c.getContext('2d');
+  function resize(){c.width=window.innerWidth;c.height=window.innerHeight}
+  window.addEventListener('resize',resize);resize();
+  const pts=[];
+  for(let i=0;i<50;i++) pts.push({x:Math.random()*c.width,y:Math.random()*c.height,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35});
   function draw(){
-    ctx.clearRect(0,0,W,H);
-    const MAX_DIST = 140;
-    for(let i=0;i<particles.length;i++){
-      const p=particles[i];
-      p.update();
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle=p.color+'cc';
-      ctx.fill();
-      for(let j=i+1;j<particles.length;j++){
-        const q=particles[j];
-        const dx=p.x-q.x, dy=p.y-q.y;
-        const d=Math.sqrt(dx*dx+dy*dy);
-        if(d<MAX_DIST){
-          const alpha=(1-d/MAX_DIST)*.35;
-          ctx.beginPath();
-          ctx.moveTo(p.x,p.y); ctx.lineTo(q.x,q.y);
-          const grad=ctx.createLinearGradient(p.x,p.y,q.x,q.y);
-          grad.addColorStop(0,p.color+Math.round(alpha*255).toString(16).padStart(2,'0'));
-          grad.addColorStop(1,q.color+Math.round(alpha*255).toString(16).padStart(2,'0'));
-          ctx.strokeStyle=grad; ctx.lineWidth=.7; ctx.stroke();
-        }
-      }
+    ctx.clearRect(0,0,c.width,c.height);
+    const D=120;
+    pts.forEach(p=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>c.width)p.vx*=-1;
+      if(p.y<0||p.y>c.height)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,Math.PI*2);
+      ctx.fillStyle='rgba(200,168,75,0.28)';ctx.fill();
+    });
+    for(let i=0;i<pts.length;i++) for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y;
+      const d=Math.sqrt(dx*dx+dy*dy);
+      if(d<D){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(200,168,75,${(1-d/D)*.1})`;ctx.lineWidth=.5;ctx.stroke()}
     }
     requestAnimationFrame(draw);
   }
   draw();
 })();
 
-/* ─── SCROLL REVEAL ─── */
+/* REVEAL */
 (function(){
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.classList.add('visible');
-        io.unobserve(e.target);
-      }
-    });
-  },{threshold:.12});
+  const els=document.querySelectorAll('.rev');
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
   els.forEach(el=>io.observe(el));
 })();
 
-/* ─── SKILL BARS ON SCROLL ─── */
+/* SKILL BARS */
 (function(){
-  const bars = document.querySelectorAll('.skill-bar-fill');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        const bar = e.target;
-        bar.style.width = bar.dataset.width+'%';
-        io.unobserve(bar);
-      }
-    });
-  },{threshold:.2});
+  const bars=document.querySelectorAll('.sb-f');
+  const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';io.unobserve(e.target)}}),{threshold:.15});
   bars.forEach(b=>io.observe(b));
-})();
-
-/* ─── ABOUT GRID MOBILE ─── */
-(function(){
-  function fixAbout(){
-    const inner = document.querySelector('.about-inner');
-    if(!inner) return;
-    if(window.innerWidth < 768){
-      inner.style.gridTemplateColumns = '1fr';
-    } else {
-      inner.style.gridTemplateColumns = '1fr 1fr';
-    }
-  }
-  fixAbout();
-  window.addEventListener('resize', fixAbout);
 })();
 </script>
 </body>
